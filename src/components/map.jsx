@@ -6,7 +6,7 @@ import './map.css';
 export default function Map() {
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const location = { lng: 73.829198, lat:  18.481345 };
+    const location = { lng: 73.8504619, lat:  18.4570715 };
     const [zoom] = useState(14);
     maptilersdk.config.apiKey = '06MLotz8sAGiiR3oxHQN';
 
@@ -25,8 +25,16 @@ export default function Map() {
         );
 
         var popup1 = new maptilersdk.Popup({ offset: 25 }).setText(
-            'Swaraj Home'
+            'State Disastar Management Authority (SDMA)'
         );
+
+        var popup2 = new maptilersdk.Popup({ offset: 25 }).setText(
+          'Local Police Katraj'
+      );
+
+      var popup3 = new maptilersdk.Popup({ offset: 25 }).setText(
+        'Ministry of Water Resources (MoWR)'
+    );
         
         
         var marker = new maptilersdk.Marker({color: "#FF0000"})
@@ -35,16 +43,20 @@ export default function Map() {
         .addTo(map.current);
 
         marker.togglePopup();
-       
-        // new maptilersdk.Marker({color: "#FF0000"})
-        // .setLngLat([location.lng + 0.01, location.lat + 0.01])
-        // .setPopup(popup)
-        // .addTo(map.current);
 
-        // new maptilersdk.Marker({color: "#FF0000"})
-        // .setLngLat([location.lng - 0.01, location.lat - 0.01])
-        // .setPopup(popup)
-        // .addTo(map.current);
+        var marker2 = new maptilersdk.Marker({color: "#FF0000"})
+        .setLngLat([location.lng + 0.01, location.lat])
+        .setPopup(popup2)
+        .addTo(map.current);
+
+        marker2.togglePopup();
+
+        var marker3 = new maptilersdk.Marker({color: "#FF0000"})
+        .setLngLat([location.lng, location.lat + 0.01])
+        .setPopup(popup3)
+        .addTo(map.current);
+
+        marker3.togglePopup();
 
         var marker1 = new maptilersdk.Marker({color: "#FF0000"})
         .setLngLat([location.lng + 0.01, location.lat - 0.01])
@@ -52,11 +64,6 @@ export default function Map() {
         .addTo(map.current);
 
         marker1.togglePopup();
-
-        // new maptilersdk.Marker({color: "#FF0000"})
-        // .setLngLat([location.lng - 0.01, location.lat + 0.01])
-        // .setPopup(popup)
-        // .addTo(map.current);
             
       
       }, [location.lng, location.lat, zoom]);

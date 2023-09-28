@@ -1,6 +1,7 @@
 import React from 'react';
 import Map from './components/map.jsx';
 import Navbar from './components/navbar.jsx';
+import List from './components/List.jsx';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         </div>
         <div className='flex-item-right'>
           Recomendations
+          <List />
         </div>
       </div>
     </div>
