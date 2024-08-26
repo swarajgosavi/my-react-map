@@ -8,7 +8,7 @@ export default function Map() {
     const map = useRef(null);
     const location = { lng: 73.8504619, lat:  18.4570715 };
     const [zoom] = useState(14);
-    maptilersdk.config.apiKey = '06MLotz8sAGiiR3oxHQN';
+    maptilersdk.config.apiKey = 'bS6xTZquA6J8keFCWweI';
 
     useEffect(() => {
         if (map.current) return; // stops map from intializing more than once
